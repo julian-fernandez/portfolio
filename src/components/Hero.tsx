@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ROLES = [
-  'Frontend Engineer',
-  'React Specialist',
+  'Full Stack Developer',
+  'React Engineer',
   'TypeScript Advocate',
-  'Accessibility Champion',
   'UI Systems Builder',
+  'Angular Developer',
 ];
 
 export function Hero() {
@@ -117,9 +117,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-xl text-[var(--text-2)] text-lg leading-relaxed mb-12"
         >
-          I build fast, accessible interfaces that scale — from design systems
-          to real-time multiplayer apps. React, TypeScript, and strong
-          opinions about UX.
+          7+ years building web apps that scale — enterprise platforms at Globant,
+          geospatial tools, streaming products, and a few things just for fun.
+          React and TypeScript are home, but I&apos;m comfortable across the stack.
         </motion.p>
 
         {/* CTAs */}
@@ -171,7 +171,7 @@ export function Hero() {
             <GithubIcon />
           </a>
           <a
-            href="https://linkedin.com/in/julian-fernandez"
+            href="https://linkedin.com/in/julian-fernandez-valdes"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"

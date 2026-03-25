@@ -7,41 +7,45 @@ export interface ExperienceItem {
   bullets: string[];
 }
 
-// TODO: Fill in your real experience
 export const experience: ExperienceItem[] = [
   {
-    id: 'exp-1',
-    company: 'Squarespace',
-    role: 'Senior Frontend Engineer',
-    period: '2022 — Present',
+    id: 'globant',
+    company: 'Globant',
+    role: 'Web Developer',
+    period: '2023 — Present',
     location: 'Remote',
     bullets: [
-      'Led frontend development for monetisation platform features serving millions of users.',
-      'Drove adoption of TypeScript-first patterns across the team, reducing runtime errors by 40%.',
-      'Championed accessibility initiatives, bringing key flows to WCAG 2.1 AA compliance.',
+      'Working on high-complexity React and Angular enterprise applications for US-based clients in fast-paced, production environments.',
+      'Guided development of critical frontend features used by 500k+ monthly active users.',
+      'Designed and implemented reusable component libraries now adopted across multiple teams.',
+      'Identified and resolved performance bottlenecks, cutting API-driven UI latency by up to 40%.',
+      'Expanded unit and e2e test coverage, meaningfully reducing regression incidents in production.',
+      'Conducting in-depth PR reviews and contributing architectural suggestions to improve consistency and long-term maintainability.',
     ],
   },
   {
-    id: 'exp-2',
-    company: 'Previous Company',
-    role: 'Frontend Engineer',
-    period: '2019 — 2022',
-    location: 'Buenos Aires',
+    id: 'beereal',
+    company: 'BeeReal IT',
+    role: 'Web Developer',
+    period: '2017 — 2023',
+    location: 'Buenos Aires, Argentina',
     bullets: [
-      'Built and maintained component libraries used across multiple product teams.',
-      'Migrated a legacy AngularJS application to Angular 14, improving performance and maintainability.',
-      'Mentored junior engineers and conducted technical interviews.',
+      'Delivered full-stack frontend solutions across media streaming, CMS, ticketing, and geospatial applications.',
+      'Maintained high-traffic live streaming platforms supporting thousands of concurrent users.',
+      'Built modular file-upload platforms that significantly reduced client content deployment time.',
+      'Implemented interactive geospatial visualizations using GeoJSON and D3.js, enabling real-time filtering across 10k+ data points.',
+      'Standardized frontend architecture across Angular and React projects, cutting onboarding time for new developers.',
+      'Led cross-functional teams of 3–6 developers, coordinating delivery timelines, technical decisions, and stakeholder communication.',
     ],
   },
   {
-    id: 'exp-3',
-    company: 'Previous Company',
-    role: 'Frontend Developer',
-    period: '2017 — 2019',
-    location: 'Buenos Aires',
+    id: 'education',
+    company: 'UNICEN',
+    role: 'UX/UI Design Diploma',
+    period: '2020 — 2021',
+    location: 'Tandil, Argentina',
     bullets: [
-      'Delivered e-commerce frontends with a focus on performance and conversion.',
-      'Introduced automated testing practices (Jest + Cypress) to the team workflow.',
+      'Universidad Nacional del Centro de la Provincia de Buenos Aires.',
     ],
   },
 ];

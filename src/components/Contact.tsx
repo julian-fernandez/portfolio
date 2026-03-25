@@ -32,8 +32,9 @@ export function Contact() {
         >
           <div>
             <motion.p variants={staggerItem} className="text-[var(--text-2)] text-lg leading-relaxed max-w-lg mb-8">
-              Open to senior frontend roles, contract work, and interesting
-              conversations about UI architecture. Remote-first.
+              Open to senior full stack and frontend roles, contract work, or just
+              an interesting conversation about architecture. Bilingual English/Spanish,
+              remote-first.
             </motion.p>
             <motion.a
               variants={staggerItem}
@@ -60,7 +61,7 @@ export function Contact() {
           >
             {[
               { label: 'GitHub',   href: 'https://github.com/julian-fernandez' },
-              { label: 'LinkedIn', href: 'https://linkedin.com/in/julian-fernandez' },
+              { label: 'LinkedIn', href: 'https://linkedin.com/in/julian-fernandez-valdes' },
             ].map(link => (
               <a
                 key={link.label}

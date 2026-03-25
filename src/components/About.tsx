@@ -61,20 +61,21 @@ export function About() {
             className="flex flex-col gap-6"
           >
             <motion.p variants={staggerItem} className="text-[var(--text-2)] text-lg leading-relaxed">
-              I&apos;m a senior frontend engineer based in Buenos Aires with a focus on
-              React, TypeScript, and building interfaces people actually enjoy using.
-              I&apos;ve shipped production code at scale — from SaaS monetisation platforms
-              serving millions of users to niche tools built out of genuine curiosity.
+              I&apos;m a full stack developer (frontend-heavy) based in Argentina with 7+ years
+              of experience. I&apos;ve worked at Globant on enterprise React and Angular apps
+              for US clients, and before that spent six years at BeeReal IT building
+              everything from live streaming platforms to geospatial data tools.
             </motion.p>
             <motion.p variants={staggerItem} className="text-[var(--text-2)] text-lg leading-relaxed">
-              I take accessibility seriously, not as a checkbox but as a design constraint
-              that makes products better. I&apos;m comfortable leading technical decisions,
-              mentoring engineers, and pushing back when something doesn&apos;t make sense.
+              I&apos;m comfortable across the stack — Node.js on the backend, design systems
+              and component libraries on the frontend, and the full CI/CD pipeline in between.
+              I&apos;ve led small teams, done a lot of PR reviews, and generally prefer
+              fixing the root cause over the symptom.
             </motion.p>
             <motion.p variants={staggerItem} className="text-[var(--text-2)] text-lg leading-relaxed">
-              Outside of work I build a fully-featured digital card game client — a project
-              that&apos;s taught me more about state machines, real-time architecture, and
-              domain modelling than any professional role.
+              On the side I&apos;m building a real-time multiplayer card game client from scratch —
+              it&apos;s the kind of project that forces you to think hard about state, architecture,
+              and edge cases, which is exactly why I keep working on it.
             </motion.p>
 
             <motion.a

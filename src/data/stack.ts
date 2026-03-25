@@ -6,26 +6,22 @@ export interface StackGroup {
 export const stack: StackGroup[] = [
   {
     label: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS / Sass'],
+    items: ['TypeScript', 'JavaScript', 'CSS / Sass', 'Node.js'],
   },
   {
     label: 'Frameworks',
-    items: ['React', 'Next.js', 'Angular', 'Node.js'],
-  },
-  {
-    label: 'Styling',
-    items: ['Tailwind CSS', 'CSS Modules', 'Styled Components', 'Design Systems'],
+    items: ['React', 'Next.js', 'Angular', 'Tailwind CSS', 'MUI'],
   },
   {
     label: 'State & Data',
-    items: ['Zustand', 'Redux Toolkit', 'React Query', 'GraphQL'],
+    items: ['Zustand', 'Redux Toolkit', 'React Query'],
   },
   {
     label: 'Testing',
-    items: ['Jest', 'React Testing Library', 'Cypress', 'Playwright'],
+    items: ['Jest', 'React Testing Library', 'Playwright'],
   },
   {
-    label: 'Tooling',
-    items: ['Vite', 'Webpack', 'Git', 'CI/CD', 'Docker', 'Nx'],
+    label: 'Tooling & Other',
+    items: ['Git', 'Vite', 'CI/CD', 'Jira', 'GeoJSON', 'D3.js'],
   },
 ];
