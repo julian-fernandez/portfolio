@@ -11,6 +11,8 @@ export interface Project {
   accent: string;
   /** emoji / icon character for the card */
   icon: string;
+  /** path relative to /public — drop a screenshot here when ready */
+  image?: string;
 }
 
 export const projects: Project[] = [
@@ -26,6 +28,7 @@ export const projects: Project[] = [
     featured: true,
     accent: '#C0392B',
     icon: '⚔️',
+    image: '/screenshots/l5r-client.png',
   },
   {
     id: 'l5r-deckbuilder',
@@ -39,6 +42,7 @@ export const projects: Project[] = [
     featured: false,
     accent: '#8B5CF6',
     icon: '🃏',
+    image: '/screenshots/l5r-deckbuilder.png',
   },
   {
     id: 'fiestas-pba',
@@ -51,6 +55,7 @@ export const projects: Project[] = [
     featured: false,
     accent: '#F59E0B',
     icon: '🎉',
+    image: '/screenshots/fiestas-pba.png',
   },
   {
     id: 'layout-cheatsheet',
@@ -63,5 +68,6 @@ export const projects: Project[] = [
     featured: false,
     accent: '#10B981',
     icon: '📐',
+    image: '/screenshots/layout-cheatsheet.png',
   },
 ];
