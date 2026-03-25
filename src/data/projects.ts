@@ -7,11 +7,8 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
-  /** accent colour used on the card */
   accent: string;
-  /** emoji / icon character for the card */
   icon: string;
-  /** path relative to /public — drop a screenshot here when ready */
   image?: string;
 }
 
@@ -21,8 +18,8 @@ export const projects: Project[] = [
     title: 'L5R: Samurai Extended',
     tagline: 'Real-time multiplayer card game engine',
     description:
-      'Full-featured digital client for a complex CCG with real-time multiplayer via Socket.io, a custom turn-engine modelling all rule phases, an interrupt/reaction system, province management, and an in-game right-click context menu for manual card actions during playtesting.',
-    tags: ['React', 'TypeScript', 'Zustand', 'Socket.io', 'Vite', 'Render'],
+      'Full digital client for a complex CCG — real-time multiplayer via Socket.io, a custom turn engine modelling all rule phases, province management, and an interrupt/reaction system for 200+ card interactions.',
+    tags: ['React', 'TypeScript', 'Zustand', 'Socket.io', 'Vite'],
     liveUrl: 'https://l5r-sx-client.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/l5r-sx-client',
     featured: true,
@@ -33,10 +30,10 @@ export const projects: Project[] = [
   {
     id: 'l5r-deckbuilder',
     title: 'L5R Card DB & Deckbuilder',
-    tagline: 'Search, build and share 6 000+ card decks',
+    tagline: 'Search, build and share decks across 6 000+ cards',
     description:
-      'Card search app with advanced filtering across 6 000+ cards, a two-column dynasty/fate deck editor, Supabase auth, deck persistence, public sharing links, PDF export, and a Samurai Extended ban-list enforcement layer that flags illegal cards inline.',
-    tags: ['React', 'Vite', 'Supabase', 'Tailwind', 'PWA', 'Cloudflare R2'],
+      'Advanced card search with filtering, a two-column deck editor, Supabase auth, deck persistence, public sharing links, PDF export, and ban-list enforcement for the Samurai Extended format.',
+    tags: ['React', 'Vite', 'Supabase', 'Tailwind', 'PWA'],
     liveUrl: 'https://samurai-extended.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/samurai-extended-deckbuilder',
     featured: false,
@@ -45,12 +42,26 @@ export const projects: Project[] = [
     image: '/screenshots/l5r-deckbuilder.png',
   },
   {
+    id: 'pitchiq',
+    title: 'PitchIQ',
+    tagline: 'Premier League stats & match explorer',
+    description:
+      'Live Premier League standings, match explorer with head-to-head history, top scorers, and team/player detail pages — built on the football-data.org API with server-side caching.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'REST API'],
+    liveUrl: 'https://pitchiq.netlify.app',
+    githubUrl: 'https://github.com/julian-fernandez/pitchiq',
+    featured: false,
+    accent: '#3B82F6',
+    icon: '⚽',
+    image: '/screenshots/pitchiq.png',
+  },
+  {
     id: 'fiestas-pba',
     title: 'Fiestas PBA',
-    tagline: 'Event discovery platform for Buenos Aires',
+    tagline: 'Event discovery for Buenos Aires Province',
     description:
-      'Consumer-facing event listing site for the Province of Buenos Aires. Clean, fast, fully responsive UI with category filtering, search, and event detail pages. Deployed on Netlify with zero-downtime CI.',
-    tags: ['React', 'Vite', 'CSS Modules', 'Netlify'],
+      'Consumer-facing event listing platform for the Province of Buenos Aires — interactive map, category filtering, search, and event detail pages. 900+ events across the province.',
+    tags: ['React', 'Vite', 'Leaflet', 'CSS Modules'],
     liveUrl: 'https://fiestas-pba.netlify.app',
     featured: false,
     accent: '#F59E0B',
@@ -62,7 +73,7 @@ export const projects: Project[] = [
     title: 'CSS Layout Cheatsheet',
     tagline: 'Interactive Flexbox & Grid reference',
     description:
-      'Living reference for CSS layout patterns: every major Flexbox and Grid property rendered live with editable values, copy-ready snippets, and visual diagrams. Built as a developer tool for everyday use.',
+      'Live, interactive reference for CSS layout — every major Flexbox and Grid property rendered in real time with editable controls, visual diagrams, and copy-ready code snippets.',
     tags: ['React', 'Vite', 'CSS', 'Tailwind'],
     liveUrl: 'https://layoutcheatsheet.netlify.app',
     featured: false,
