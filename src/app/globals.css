@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
+/* ─── Design tokens ──────────────────────────────────────────────────────── */
+/* The portfolio is intentionally dark-themed. We define the palette once    */
+/* and force dark color-scheme so OS light-mode users still see it correctly. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --bg:       #0B0B09;
+  --surface:  #111110;
+  --border:   #252520;
+  --text:     #F0EDE6;
+  --text-2:   #9B9790;
+  --muted:    #5A5650;
+
+  --accent:   #E8642C;
+  --accent-2: #C94F1E;
+
+  /* nav-specific so it's easy to swap */
+  --nav-scrolled-bg: rgba(11, 11, 9, 0.92);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
