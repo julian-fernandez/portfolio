@@ -16,7 +16,7 @@ export function Projects() {
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
           className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-4"
         >
-          02 / Projects
+          01 / Projects
         </motion.p>
 
         <motion.h2
@@ -57,7 +57,7 @@ export function Projects() {
               <h3 className="font-display font-black text-2xl text-white leading-tight drop-shadow-md">
                 {featured.title}
               </h3>
-              <p className="font-mono text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#ff8a7a' }}>
+              <p className="font-mono text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--accent)' }}>
                 {featured.tagline}
               </p>
             </div>

@@ -13,7 +13,7 @@ export function Experience() {
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
           className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-4"
         >
-          04 / Experience
+          03 / Experience
         </motion.p>
 
         <motion.h2

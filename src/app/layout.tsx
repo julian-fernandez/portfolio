@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Julian Fernandez — Frontend Developer",
-  description: "Senior frontend developer specialising in React, TypeScript and complex UI systems.",
+  description: "Frontend developer specialising in React, TypeScript and complex UI systems.",
 };
 
 export default function RootLayout({

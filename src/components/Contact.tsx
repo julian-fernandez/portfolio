@@ -32,7 +32,7 @@ export function Contact() {
         >
           <div>
             <motion.p variants={staggerItem} className="text-[var(--text-2)] text-lg leading-relaxed max-w-lg mb-8">
-              Open to senior full stack and frontend roles, contract work, or just
+              Open to Ssr/Sr full stack and frontend roles, contract work, or just
               an interesting conversation about architecture. Bilingual English/Spanish,
               remote-first.
             </motion.p>

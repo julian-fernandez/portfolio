@@ -13,7 +13,7 @@ export function Stack() {
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
           className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-4"
         >
-          03 / Stack
+          02 / Stack
         </motion.p>
 
         <motion.h2
