@@ -27,10 +27,10 @@ export function Projects() {
           Selected work
         </motion.h2>
 
-        {/* ── Featured — wider card ── */}
+        {/* ── Featured ── */}
         <motion.div
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="mb-4"
+          className="mb-6"
         >
           <ProjectCard project={featured} tall />
         </motion.div>
@@ -38,7 +38,7 @@ export function Projects() {
         {/* ── Grid ── */}
         <motion.ul
           initial="hidden" whileInView="visible" variants={staggerContainer} viewport={viewport}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           role="list"
         >
           {rest.map(project => (
@@ -54,97 +54,89 @@ export function Projects() {
 
 function ProjectCard({ project, tall = false }: { project: Project; tall?: boolean }) {
   return (
-    <a
-      href={project.liveUrl ?? '#'}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open ${project.title}`}
-      className={`group relative block w-full overflow-hidden rounded-2xl bg-[#0F0F0C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
-        tall ? 'aspect-[21/9]' : 'aspect-[4/3]'
-      }`}
-    >
-      {/* Screenshot */}
-      {project.image ? (
-        <Image
-          src={project.image}
-          alt={`Screenshot of ${project.title}`}
-          fill
-          sizes={tall ? '100vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'}
-          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-      ) : (
+    <article className="group flex flex-col">
+
+      {/* ── Screenshot (title lives here) ── */}
+      <a
+        href={project.liveUrl ?? '#'}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${project.title}`}
+        className={`relative block w-full overflow-hidden rounded-xl bg-[#0F0F0C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
+          tall ? 'aspect-[21/9]' : 'aspect-[4/3]'
+        }`}
+      >
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`Screenshot of ${project.title}`}
+            fill
+            sizes={tall ? '100vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'}
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${project.accent}22, #0F0F0C)` }}
+          >
+            <span className="text-6xl opacity-30 select-none">{project.icon}</span>
+          </div>
+        )}
+
+        {/* Gradient — just enough to make the title readable */}
         <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{ background: `linear-gradient(135deg, ${project.accent}22, #0F0F0C)` }}
-        >
-          <span className="text-6xl opacity-30 select-none">{project.icon}</span>
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)' }}
+        />
+
+        {/* Hover accent glow */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ background: `linear-gradient(to top, ${project.accent}33 0%, transparent 55%)` }}
+        />
+
+        {/* Title — only thing inside the image */}
+        <div className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
+          <h3 className={`font-display font-black text-white leading-tight drop-shadow-md ${tall ? 'text-2xl' : 'text-base'}`}>
+            {project.title}
+          </h3>
+          <span className="shrink-0 flex items-center gap-1 text-xs font-semibold text-white/50 group-hover:text-white transition-colors">
+            Visit <ExternalIcon />
+          </span>
         </div>
-      )}
+      </a>
 
-      {/* Always-on gradient — strong at bottom, fades up */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.05) 100%)',
-        }}
-      />
-
-      {/* Hover: extra tint + accent corner glow */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background: `linear-gradient(to top, ${project.accent}44 0%, transparent 60%)`,
-        }}
-      />
-
-      {/* Text overlay — sits at the bottom inside the image */}
-      <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-2">
-        {/* Tags row */}
-        <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
-          {project.tags.slice(0, tall ? 6 : 3).map(tag => (
-            <li key={tag}>
-              <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/10 text-white/70 backdrop-blur-sm border border-white/10">
-                {tag}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        {/* Title */}
-        <h3 className={`font-display font-black text-white leading-tight drop-shadow-md ${tall ? 'text-3xl' : 'text-lg'}`}>
-          {project.title}
-        </h3>
-
-        {/* Description */}
-        <p className={`text-white/80 leading-snug drop-shadow-sm ${tall ? 'text-sm max-w-2xl' : 'text-xs line-clamp-2'}`}>
+      {/* ── Below the image: description + tags + github ── */}
+      <div className="pt-4 flex flex-col gap-3 flex-1">
+        <p className={`text-[var(--text-2)] leading-relaxed ${tall ? 'text-sm max-w-3xl' : 'text-sm'}`}>
           {project.description}
         </p>
 
-        {/* Bottom row: tagline + links */}
-        <div className="flex items-center justify-between gap-3 pt-1">
-          <span className="font-mono text-[10px] tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: project.accent === '#C0392B' ? '#ff8a7a' : project.accent }}>
-            {project.tagline}
-          </span>
-          <div className="flex items-center gap-2 ml-auto">
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${project.title} on GitHub`}
-                onClick={e => e.stopPropagation()}
-                className="text-white/50 hover:text-white transition-colors"
-              >
-                <GithubIcon />
-              </a>
-            )}
-            <span className="flex items-center gap-1 text-xs font-semibold text-white/60 group-hover:text-white transition-colors">
-              Visit <ExternalIcon />
-            </span>
-          </div>
+        <div className="flex items-start justify-between gap-3 mt-auto pt-1">
+          <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
+            {project.tags.map(tag => (
+              <li key={tag}>
+                <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-[var(--border)] text-[var(--muted)]">
+                  {tag}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} on GitHub`}
+              className="shrink-0 text-[var(--muted)] hover:text-[var(--text)] transition-colors mt-0.5"
+            >
+              <GithubIcon />
+            </a>
+          )}
         </div>
       </div>
-    </a>
+    </article>
   );
 }
 
