@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: 'L5R: Samurai Extended',
     tagline: 'Real-time multiplayer card game engine',
     description:
-      'Full digital client for a complex CCG — real-time multiplayer via Socket.io, a custom turn engine modelling all rule phases, province management, and an interrupt/reaction system for 200+ card interactions.',
+      'Full digital client for a complex CCG — real-time multiplayer via Socket.io, a custom turn engine modelling all rule phases, card manipulation, and an interrupt/reaction system for 200+ card interactions.',
     tags: ['React', 'TypeScript', 'Zustand', 'Socket.io', 'Vite'],
     liveUrl: 'https://l5r-sx-client.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/l5r-sx-client',
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     id: 'l5r-deckbuilder',
     title: 'L5R Card DB & Deckbuilder',
-    tagline: 'Search, build and share decks across 6 000+ cards',
+    tagline: 'Search, build and share decks across 6,000+ cards',
     description:
       'Advanced card search with filtering, a two-column deck editor, Supabase auth, deck persistence, public sharing links, PDF export, and ban-list enforcement for the Samurai Extended format.',
     tags: ['React', 'Vite', 'Supabase', 'Tailwind', 'PWA'],
