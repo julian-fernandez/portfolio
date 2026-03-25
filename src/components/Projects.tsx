@@ -9,124 +9,125 @@ export function Projects() {
   const [featured, ...rest] = projects;
 
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="py-32 px-6 bg-[var(--surface)]">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" aria-label="Projects">
 
-        <motion.p
-          initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-4"
-        >
-          01 / Projects
-        </motion.p>
+      {/* ── Featured — sits right below the hero, no padding overhead ── */}
+      <div className="px-6 pb-6">
+        <div className="max-w-6xl mx-auto">
 
-        <motion.h2
-          id="projects-heading"
-          initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="font-display font-black text-[clamp(2rem,4vw,3rem)] text-[var(--text)] mb-16"
-        >
-          Selected work
-        </motion.h2>
+          {/* Tiny label — doesn't take up much space */}
+          <p className="font-mono text-[var(--accent)] text-[10px] tracking-widest uppercase mb-3">
+            Featured project
+          </p>
 
-        {/* ── Featured — two-column on desktop ── */}
-        <motion.article
-          initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="group mb-6 grid lg:grid-cols-[1fr_1fr] gap-0 rounded-2xl overflow-hidden border border-[var(--border)] bg-[#0F0F0C]"
-        >
-          {/* Screenshot */}
-          <a
-            href={featured.liveUrl ?? '#'}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${featured.title}`}
-            className="relative block w-full aspect-[4/3] lg:aspect-auto overflow-hidden focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+          <motion.article
+            initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
+            className="group grid lg:grid-cols-[1.1fr_0.9fr] gap-0 rounded-2xl overflow-hidden border border-[var(--border)]"
+            style={{ background: '#0C0C14' }}
           >
-            {featured.image && (
-              <Image
-                src={featured.image}
-                alt={`Screenshot of ${featured.title}`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+            {/* Screenshot */}
+            <a
+              href={featured.liveUrl ?? '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${featured.title}`}
+              className="relative block w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+              style={{ minHeight: '280px' }}
+            >
+              {featured.image && (
+                <Image
+                  src={featured.image}
+                  alt={`Screenshot of ${featured.title}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              )}
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)' }}
               />
-            )}
-            <div
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }}
-            />
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <h3 className="font-display font-black text-2xl text-white leading-tight drop-shadow-md">
-                {featured.title}
-              </h3>
-              <p className="font-mono text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--accent)' }}>
-                {featured.tagline}
+              <div className="absolute bottom-0 left-0 p-4">
+                <span className="font-display font-black text-xl text-white drop-shadow-md">
+                  {featured.title}
+                </span>
+              </div>
+            </a>
+
+            {/* Details panel — compact */}
+            <div className="flex flex-col p-5 gap-4 border-t lg:border-t-0 lg:border-l border-[var(--border)]">
+              <p className="text-[var(--text-2)] text-sm leading-relaxed">
+                {featured.description}
               </p>
-            </div>
-          </a>
 
-          {/* Details panel */}
-          <div className="flex flex-col p-7 gap-5 border-t lg:border-t-0 lg:border-l border-[var(--border)]">
-            <p className="text-[var(--text-2)] text-sm leading-relaxed">
-              {featured.description}
-            </p>
-
-            {featured.highlights && (
-              <div>
-                <p className="font-mono text-[10px] tracking-widest uppercase text-[var(--muted)] mb-3">
-                  Technical highlights
-                </p>
-                <ul className="flex flex-col gap-2.5">
+              {featured.highlights && (
+                <ul className="flex flex-col gap-2">
                   {featured.highlights.map((point, i) => (
-                    <li key={i} className="flex gap-2.5 items-baseline">
-                      <span className="text-[var(--accent)] text-xs shrink-0 mt-px">▸</span>
+                    <li key={i} className="flex gap-2 items-baseline">
+                      <span className="text-[var(--accent)] text-xs shrink-0">▸</span>
                       <span className="text-[var(--text-2)] text-xs leading-relaxed">{point}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
+              )}
 
-            <div className="flex items-center gap-3 flex-wrap mt-auto pt-2 border-t border-[var(--border)]">
-              <ul className="flex flex-wrap gap-1.5 flex-1" aria-label="Technologies">
-                {featured.tags.map(tag => (
-                  <li key={tag}>
-                    <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-[var(--border)] text-[var(--muted)]">
-                      {tag}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex items-center gap-3 shrink-0">
-                {featured.githubUrl && (
-                  <a href={featured.githubUrl} target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub" className="text-[var(--muted)] hover:text-[var(--text)] transition-colors">
-                    <GithubIcon />
-                  </a>
-                )}
-                {featured.liveUrl && (
-                  <a href={featured.liveUrl} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full text-white transition-opacity hover:opacity-80"
-                    style={{ background: featured.accent }}>
-                    Live demo <ExternalIcon />
-                  </a>
-                )}
+              <div className="flex items-center gap-3 flex-wrap mt-auto pt-3 border-t border-[var(--border)]">
+                <ul className="flex flex-wrap gap-1.5 flex-1" aria-label="Technologies">
+                  {featured.tags.map(tag => (
+                    <li key={tag}>
+                      <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-[var(--border)] text-[var(--muted)]">
+                        {tag}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center gap-3 shrink-0">
+                  {featured.githubUrl && (
+                    <a href={featured.githubUrl} target="_blank" rel="noopener noreferrer"
+                      aria-label="GitHub" className="text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+                      <GithubIcon />
+                    </a>
+                  )}
+                  {featured.liveUrl && (
+                    <a href={featured.liveUrl} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full text-white transition-opacity hover:opacity-80"
+                      style={{ background: featured.accent }}>
+                      Live demo <ExternalIcon />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </motion.article>
-
-        {/* ── Grid ── */}
-        <motion.ul
-          initial="hidden" whileInView="visible" variants={staggerContainer} viewport={viewport}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          role="list"
-        >
-          {rest.map(project => (
-            <motion.li key={project.id} variants={staggerItem}>
-              <ProjectCard project={project} />
-            </motion.li>
-          ))}
-        </motion.ul>
+          </motion.article>
+        </div>
       </div>
+
+      {/* ── Other projects grid ── */}
+      <div className="px-6 py-16 bg-[var(--surface)]">
+        <div className="max-w-6xl mx-auto">
+
+          <motion.p
+            initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
+            className="font-mono text-[var(--accent)] text-[10px] tracking-widest uppercase mb-6"
+          >
+            More projects
+          </motion.p>
+
+          <motion.ul
+            initial="hidden" whileInView="visible" variants={staggerContainer} viewport={viewport}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            role="list"
+          >
+            {rest.map(project => (
+              <motion.li key={project.id} variants={staggerItem}>
+                <ProjectCard project={project} />
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+      </div>
+
     </section>
   );
 }
@@ -139,7 +140,7 @@ function ProjectCard({ project }: { project: Project }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open ${project.title}`}
-        className="relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#0F0F0C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+        className="relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#0C0C14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
       >
         {project.image ? (
           <Image
@@ -151,7 +152,7 @@ function ProjectCard({ project }: { project: Project }) {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center"
-            style={{ background: `linear-gradient(135deg, ${project.accent}22, #0F0F0C)` }}>
+            style={{ background: `linear-gradient(135deg, ${project.accent}22, #0C0C14)` }}>
             <span className="text-6xl opacity-30 select-none">{project.icon}</span>
           </div>
         )}
