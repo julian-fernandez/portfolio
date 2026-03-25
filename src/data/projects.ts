@@ -2,6 +2,8 @@ export interface Project {
   id: string;
   title: string;
   tagline: string;
+  /** Hard one-liner shown at the top of the flagship card — no fluff, just signal */
+  punchline?: string;
   description: string;
   /** Bullet points surfacing technical depth — used on the featured card */
   highlights?: string[];
@@ -19,6 +21,7 @@ export const projects: Project[] = [
     id: 'l5r-client',
     title: 'L5R: Samurai Extended',
     tagline: 'Real-time multiplayer card game client',
+    punchline: 'Multiplayer CCG — server-authoritative state, deterministic rules engine, real-time sync over WebSockets',
     description:
       'Web client for a complex CCG with real-time multiplayer. The core challenge was implementing a rules engine that handles chained card effects, interrupt/reaction priority windows, and hidden information — while keeping both clients perfectly in sync through a server-authoritative state model over WebSockets.',
     highlights: [

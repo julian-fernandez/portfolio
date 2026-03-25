@@ -6,7 +6,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   return (
-    <section aria-label="Introduction" className="pt-28 pb-10 px-6">
+    <section aria-label="Introduction" className="pt-20 pb-5 px-6">
       <div className="max-w-6xl mx-auto">
 
         <motion.h1

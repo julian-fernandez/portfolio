@@ -73,16 +73,6 @@ export function Nav() {
           aria-label="Main navigation"
           className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
         >
-          {/* Logo / Name */}
-          <a
-            href="#"
-            onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="font-display font-black text-lg tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors"
-            aria-label="Julian Fernandez — back to top"
-          >
-            JF
-          </a>
-
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8" role="list">
             {NAV_LINKS.map(link => (

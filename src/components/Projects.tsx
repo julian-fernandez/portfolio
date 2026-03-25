@@ -12,12 +12,12 @@ export function Projects() {
     <section id="projects" aria-label="Projects">
 
       {/* ── Featured — sits right below the hero, no padding overhead ── */}
-      <div className="px-6 pb-6">
+      <div className="px-6 pb-4">
         <div className="max-w-6xl mx-auto">
 
           {/* Tiny label — doesn't take up much space */}
-          <p className="font-mono text-[var(--accent)] text-[10px] tracking-widest uppercase mb-3">
-            Featured project
+          <p className="font-mono text-[var(--accent)] text-[10px] tracking-widest uppercase mb-2">
+            Flagship Project
           </p>
 
           <motion.article
@@ -56,7 +56,12 @@ export function Projects() {
             </a>
 
             {/* Details panel — compact */}
-            <div className="flex flex-col p-5 gap-4 border-t lg:border-t-0 lg:border-l border-[var(--border)]">
+            <div className="flex flex-col p-5 gap-3 border-t lg:border-t-0 lg:border-l border-[var(--border)]">
+              {featured.punchline && (
+                <p className="font-mono text-xs text-[var(--text)] leading-relaxed border-l-2 border-[var(--accent)] pl-3">
+                  {featured.punchline}
+                </p>
+              )}
               <p className="text-[var(--text-2)] text-sm leading-relaxed">
                 {featured.description}
               </p>
