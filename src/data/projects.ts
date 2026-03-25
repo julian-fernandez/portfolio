@@ -3,6 +3,8 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
+  /** Bullet points surfacing technical depth — used on the featured card */
+  highlights?: string[];
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -16,10 +18,16 @@ export const projects: Project[] = [
   {
     id: 'l5r-client',
     title: 'L5R: Samurai Extended',
-    tagline: 'Real-time multiplayer card game engine',
+    tagline: 'Real-time multiplayer card game client',
     description:
-      'Full digital client for a complex CCG — real-time multiplayer via Socket.io, a custom turn engine modelling all rule phases, card manipulation, and an interrupt/reaction system for 200+ card interactions.',
-    tags: ['React', 'TypeScript', 'Zustand', 'Socket.io', 'Vite'],
+      'Web client for a complex CCG with real-time multiplayer. The core challenge was implementing a rules engine that handles chained card effects, interrupt/reaction priority windows, and hidden information — while keeping both clients perfectly in sync through a server-authoritative state model over WebSockets.',
+    highlights: [
+      'Server-authoritative game state over WebSockets (Socket.io) — clients receive only the state they\'re allowed to see (opponent hand is opaque, deck order unknown)',
+      'Rules engine models 8 turn phases, each with distinct legal actions; interrupt/reaction system can trigger mid-resolution of another effect, requiring a nested timing stack',
+      'Finite-state machine for card lifecycle: bowed/unbowed, face-up/down, attached, in battle — all transitions validated server-side before being broadcast',
+      'UI handles async state updates without race conditions — phase transitions, card animations, and context menus all driven by a single synchronized event stream',
+    ],
+    tags: ['React', 'TypeScript', 'Zustand', 'Socket.io', 'Node.js', 'Vite'],
     liveUrl: 'https://l5r-sx-client.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/l5r-sx-client',
     featured: true,
@@ -30,10 +38,10 @@ export const projects: Project[] = [
   {
     id: 'l5r-deckbuilder',
     title: 'L5R Card DB & Deckbuilder',
-    tagline: 'Search, build and share decks across 6,000+ cards',
+    tagline: 'Card search, deck editor & persistence for 6,000+ cards',
     description:
-      'Advanced card search with filtering, a two-column deck editor, Supabase auth, deck persistence, public sharing links, PDF export, and ban-list enforcement for the Samurai Extended format.',
-    tags: ['React', 'Vite', 'Supabase', 'Tailwind', 'PWA'],
+      'Built a custom XML parsing pipeline to extract structured keyword and effect data from inconsistently formatted card text across multiple card sets. The deck editor enforces format-specific rules (dynasty/fate split, honor requirements, uniqueness, ban lists) and persists decks to Supabase with tokenized public sharing.',
+    tags: ['React', 'Vite', 'Supabase', 'Tailwind', 'PWA', 'Cloudflare R2'],
     liveUrl: 'https://samurai-extended.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/samurai-extended-deckbuilder',
     featured: false,
@@ -46,7 +54,7 @@ export const projects: Project[] = [
     title: 'PitchIQ',
     tagline: 'Premier League stats & match explorer',
     description:
-      'Live Premier League standings, match explorer with head-to-head history, top scorers, and team/player detail pages — built on the football-data.org API with server-side caching.',
+      'Next.js app with server-side API routes that proxy and cache football-data.org responses to stay within free-tier rate limits. Includes standings, head-to-head match history, top scorers, and team/player detail pages with Next.js Image optimization for team crests.',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'REST API'],
     liveUrl: 'https://pitchiq.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/pitchiq',
@@ -60,8 +68,8 @@ export const projects: Project[] = [
     title: 'Fiestas PBA',
     tagline: 'Event discovery for Buenos Aires Province',
     description:
-      'Consumer-facing event listing platform for the Province of Buenos Aires — interactive map, category filtering, search, and event detail pages. 900+ events across the province.',
-    tags: ['React', 'Vite', 'Leaflet', 'CSS Modules'],
+      'Interactive map-based event listing platform for the Province of Buenos Aires — 900+ events rendered with Leaflet, with real-time filtering by location radius, city, date range, and category.',
+    tags: ['React', 'Vite', 'Leaflet', 'GeoJSON'],
     liveUrl: 'https://fiestas-pba.netlify.app',
     featured: false,
     accent: '#F59E0B',
@@ -73,8 +81,8 @@ export const projects: Project[] = [
     title: 'CSS Layout Cheatsheet',
     tagline: 'Interactive Flexbox & Grid reference',
     description:
-      'Live, interactive reference for CSS layout — every major Flexbox and Grid property rendered in real time with editable controls, visual diagrams, and copy-ready code snippets.',
-    tags: ['React', 'Vite', 'CSS', 'Tailwind'],
+      'Every major Flexbox and Grid property rendered live with editable controls, visual diagrams, and copy-ready snippets. Built as a daily-use developer tool — no framework, just CSS doing the work.',
+    tags: ['React', 'Vite', 'CSS'],
     liveUrl: 'https://layoutcheatsheet.netlify.app',
     featured: false,
     accent: '#10B981',

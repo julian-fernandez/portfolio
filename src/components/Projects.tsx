@@ -27,13 +27,92 @@ export function Projects() {
           Selected work
         </motion.h2>
 
-        {/* ── Featured ── */}
-        <motion.div
+        {/* ── Featured — two-column on desktop ── */}
+        <motion.article
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="mb-6"
+          className="group mb-6 grid lg:grid-cols-[1fr_1fr] gap-0 rounded-2xl overflow-hidden border border-[var(--border)] bg-[#0F0F0C]"
         >
-          <ProjectCard project={featured} tall />
-        </motion.div>
+          {/* Screenshot */}
+          <a
+            href={featured.liveUrl ?? '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${featured.title}`}
+            className="relative block w-full aspect-[4/3] lg:aspect-auto overflow-hidden focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+          >
+            {featured.image && (
+              <Image
+                src={featured.image}
+                alt={`Screenshot of ${featured.title}`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            )}
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }}
+            />
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <h3 className="font-display font-black text-2xl text-white leading-tight drop-shadow-md">
+                {featured.title}
+              </h3>
+              <p className="font-mono text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#ff8a7a' }}>
+                {featured.tagline}
+              </p>
+            </div>
+          </a>
+
+          {/* Details panel */}
+          <div className="flex flex-col p-7 gap-5 border-t lg:border-t-0 lg:border-l border-[var(--border)]">
+            <p className="text-[var(--text-2)] text-sm leading-relaxed">
+              {featured.description}
+            </p>
+
+            {featured.highlights && (
+              <div>
+                <p className="font-mono text-[10px] tracking-widest uppercase text-[var(--muted)] mb-3">
+                  Technical highlights
+                </p>
+                <ul className="flex flex-col gap-2.5">
+                  {featured.highlights.map((point, i) => (
+                    <li key={i} className="flex gap-2.5 items-baseline">
+                      <span className="text-[var(--accent)] text-xs shrink-0 mt-px">▸</span>
+                      <span className="text-[var(--text-2)] text-xs leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="flex items-center gap-3 flex-wrap mt-auto pt-2 border-t border-[var(--border)]">
+              <ul className="flex flex-wrap gap-1.5 flex-1" aria-label="Technologies">
+                {featured.tags.map(tag => (
+                  <li key={tag}>
+                    <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-[var(--border)] text-[var(--muted)]">
+                      {tag}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex items-center gap-3 shrink-0">
+                {featured.githubUrl && (
+                  <a href={featured.githubUrl} target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub" className="text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+                    <GithubIcon />
+                  </a>
+                )}
+                {featured.liveUrl && (
+                  <a href={featured.liveUrl} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full text-white transition-opacity hover:opacity-80"
+                    style={{ background: featured.accent }}>
+                    Live demo <ExternalIcon />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.article>
 
         {/* ── Grid ── */}
         <motion.ul
@@ -52,52 +131,38 @@ export function Projects() {
   );
 }
 
-function ProjectCard({ project, tall = false }: { project: Project; tall?: boolean }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex flex-col">
-
-      {/* ── Screenshot (title lives here) ── */}
       <a
         href={project.liveUrl ?? '#'}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open ${project.title}`}
-        className={`relative block w-full overflow-hidden rounded-xl bg-[#0F0F0C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
-          tall ? 'aspect-[21/9]' : 'aspect-[4/3]'
-        }`}
+        className="relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#0F0F0C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
       >
         {project.image ? (
           <Image
             src={project.image}
             alt={`Screenshot of ${project.title}`}
             fill
-            sizes={tall ? '100vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ background: `linear-gradient(135deg, ${project.accent}22, #0F0F0C)` }}
-          >
+          <div className="absolute inset-0 flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${project.accent}22, #0F0F0C)` }}>
             <span className="text-6xl opacity-30 select-none">{project.icon}</span>
           </div>
         )}
-
-        {/* Gradient — just enough to make the title readable */}
-        <div
-          className="absolute inset-0"
+        <div className="absolute inset-0"
           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)' }}
         />
-
-        {/* Hover accent glow */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{ background: `linear-gradient(to top, ${project.accent}33 0%, transparent 55%)` }}
         />
-
-        {/* Title — only thing inside the image */}
         <div className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
-          <h3 className={`font-display font-black text-white leading-tight drop-shadow-md ${tall ? 'text-2xl' : 'text-base'}`}>
+          <h3 className="font-display font-black text-base text-white leading-tight drop-shadow-md">
             {project.title}
           </h3>
           <span className="shrink-0 flex items-center gap-1 text-xs font-semibold text-white/50 group-hover:text-white transition-colors">
@@ -106,12 +171,10 @@ function ProjectCard({ project, tall = false }: { project: Project; tall?: boole
         </div>
       </a>
 
-      {/* ── Below the image: description + tags + github ── */}
       <div className="pt-4 flex flex-col gap-3 flex-1">
-        <p className={`text-[var(--text-2)] leading-relaxed ${tall ? 'text-sm max-w-3xl' : 'text-sm'}`}>
+        <p className="text-[var(--text-2)] text-sm leading-relaxed">
           {project.description}
         </p>
-
         <div className="flex items-start justify-between gap-3 mt-auto pt-1">
           <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
             {project.tags.map(tag => (
@@ -122,15 +185,10 @@ function ProjectCard({ project, tall = false }: { project: Project; tall?: boole
               </li>
             ))}
           </ul>
-
           {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
               aria-label={`${project.title} on GitHub`}
-              className="shrink-0 text-[var(--muted)] hover:text-[var(--text)] transition-colors mt-0.5"
-            >
+              className="shrink-0 text-[var(--muted)] hover:text-[var(--text)] transition-colors mt-0.5">
               <GithubIcon />
             </a>
           )}
