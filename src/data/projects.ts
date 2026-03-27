@@ -59,6 +59,7 @@ export const projects: Project[] = [
     description:
       'Next.js fullstack app that scores a CV against a job description, identifies ATS keyword gaps, suggests honest wording upgrades (never fabricated), and streams a cover letter via Groq. Parses uploaded PDF/DOCX files server-side; architecture is wired for Supabase auth and per-user history.',
     tags: ['Next.js', 'TypeScript', 'Groq AI', 'Tailwind', 'Supabase'],
+    liveUrl: 'https://applyiq-app.netlify.app',
     githubUrl: 'https://github.com/julian-fernandez/cover-letter-generator',
     featured: false,
     accent: '#C2622B',
