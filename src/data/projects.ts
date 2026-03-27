@@ -53,6 +53,19 @@ export const projects: Project[] = [
     image: '/screenshots/l5r-deckbuilder.png',
   },
   {
+    id: 'applyiq',
+    title: 'ApplyIQ',
+    tagline: 'AI-powered CV analyser and cover letter generator',
+    description:
+      'Next.js fullstack app that scores a CV against a job description, identifies ATS keyword gaps, suggests honest wording upgrades (never fabricated), and streams a cover letter via Groq. Parses uploaded PDF/DOCX files server-side; architecture is wired for Supabase auth and per-user history.',
+    tags: ['Next.js', 'TypeScript', 'Groq AI', 'Tailwind', 'Supabase'],
+    githubUrl: 'https://github.com/julian-fernandez/cover-letter-generator',
+    featured: false,
+    accent: '#C2622B',
+    icon: '📄',
+    image: '/screenshots/applyiq.png',
+  },
+  {
     id: 'pitchiq',
     title: 'PitchIQ',
     tagline: 'Premier League stats & match explorer',

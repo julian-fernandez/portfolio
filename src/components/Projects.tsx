@@ -22,8 +22,7 @@ export function Projects() {
 
           <motion.article
             initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-            className="group grid lg:grid-cols-[1.1fr_0.9fr] gap-0 rounded-2xl overflow-hidden border border-[var(--border)]"
-            style={{ background: '#0C0C14' }}
+            className="group grid lg:grid-cols-[1.1fr_0.9fr] gap-0 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface-card)]"
           >
             {/* Screenshot */}
             <a
@@ -68,8 +67,8 @@ export function Projects() {
 
               {featured.highlights && (
                 <ul className="flex flex-col gap-2">
-                  {featured.highlights.map((point, i) => (
-                    <li key={i} className="flex gap-2 items-baseline">
+                  {featured.highlights.map((point) => (
+                    <li key={point} className="flex gap-2 items-baseline">
                       <span className="text-[var(--accent)] text-xs shrink-0">▸</span>
                       <span className="text-[var(--text-2)] text-xs leading-relaxed">{point}</span>
                     </li>
@@ -145,7 +144,7 @@ function ProjectCard({ project }: { project: Project }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open ${project.title}`}
-        className="relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#0C0C14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+        className="relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-[var(--surface-card)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
       >
         {project.image ? (
           <Image

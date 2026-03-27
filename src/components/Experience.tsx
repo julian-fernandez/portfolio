@@ -71,8 +71,8 @@ export function Experience() {
 
                 {/* Bullets */}
                 <ul className="flex flex-col gap-2.5 mt-1" aria-label={`${item.role} at ${item.company} responsibilities`}>
-                  {item.bullets.map((bullet, j) => (
-                    <li key={j} className="flex gap-3 items-baseline">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3 items-baseline">
                       <span aria-hidden="true" className="text-[var(--accent)] text-xs mt-1 shrink-0">▸</span>
                       <span className="text-[var(--text-2)] text-sm leading-relaxed">{bullet}</span>
                     </li>
