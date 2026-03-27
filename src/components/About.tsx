@@ -42,7 +42,7 @@ export function About() {
 
           <motion.a
             variants={staggerItem}
-            href="/cv.pdf"
+            href="/julian-fernandez-cv.pdf"
             download
             className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-[var(--accent)] hover:gap-4 transition-all group self-start"
             aria-label="Download CV as PDF"

@@ -55,7 +55,7 @@ export function Hero() {
             Contact me
           </a>
           <a
-            href="/cv.pdf"
+            href="/julian-fernandez-cv.pdf"
             download
             className="text-sm text-[var(--muted)] hover:text-[var(--text-2)] transition-colors underline underline-offset-4"
           >
