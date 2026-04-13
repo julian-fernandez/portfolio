@@ -8,12 +8,7 @@ export function About() {
     <section id="about" aria-labelledby="about-heading" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
 
-        <motion.p
-          initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-8"
-        >
-          04 / About
-        </motion.p>
+        <p className="text-[11px] text-[var(--muted)] uppercase tracking-widest mb-8">About</p>
 
         <motion.div
           initial="hidden" whileInView="visible" variants={staggerContainer} viewport={viewport}
@@ -22,7 +17,7 @@ export function About() {
           <motion.h2
             id="about-heading"
             variants={staggerItem}
-            className="font-display font-black text-2xl text-[var(--text)] mb-1"
+            className="font-display font-bold text-2xl text-[var(--text)] mb-1"
           >
             Background
           </motion.h2>

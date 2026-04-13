@@ -9,17 +9,12 @@ export function Experience() {
     <section id="experience" aria-labelledby="experience-heading" className="py-32 px-6 bg-[var(--surface)]">
       <div className="max-w-6xl mx-auto">
 
-        <motion.p
-          initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase mb-4"
-        >
-          03 / Experience
-        </motion.p>
+        <p className="text-[11px] text-[var(--muted)] uppercase tracking-widest mb-4">Experience</p>
 
         <motion.h2
           id="experience-heading"
           initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewport}
-          className="font-display font-black text-[clamp(2rem,4vw,3rem)] text-[var(--text)] mb-16"
+          className="font-display font-bold text-[clamp(1.8rem,4vw,2.6rem)] text-[var(--text)] mb-14"
         >
           Where I&apos;ve worked
         </motion.h2>
@@ -58,22 +53,22 @@ export function Experience() {
                 <div>
                   <time
                     dateTime={item.period}
-                    className="font-mono text-[var(--text-2)] text-xs tracking-widest uppercase"
+                    className="text-[var(--muted)] text-xs"
                   >
                     {item.period}
                   </time>
-                  <h3 className="font-display font-black text-xl text-[var(--text)] mt-1 leading-tight">
+                  <h3 className="font-display font-bold text-lg text-[var(--text)] mt-1 leading-tight">
                     {item.role}
                   </h3>
                   <p className="text-[var(--accent)] text-sm font-semibold mt-0.5">{item.company}</p>
-                  <p className="text-[var(--muted)] text-xs font-mono mt-1">{item.location}</p>
+                  <p className="text-[var(--muted)] text-xs mt-1">{item.location}</p>
                 </div>
 
                 {/* Bullets */}
                 <ul className="flex flex-col gap-2.5 mt-1" aria-label={`${item.role} at ${item.company} responsibilities`}>
                   {item.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-3 items-baseline">
-                      <span aria-hidden="true" className="text-[var(--accent)] text-xs mt-1 shrink-0">▸</span>
+                      <span aria-hidden="true" className="text-[var(--muted)] text-xs mt-1 shrink-0 select-none">—</span>
                       <span className="text-[var(--text-2)] text-sm leading-relaxed">{bullet}</span>
                     </li>
                   ))}

@@ -2,33 +2,31 @@
 
 import { motion } from 'framer-motion';
 
-const ease = [0.16, 1, 0.3, 1] as const;
-
 export function Hero() {
   return (
-    <section aria-label="Introduction" className="pt-20 pb-5 px-6">
+    <section aria-label="Introduction" className="pt-24 pb-6 px-6">
       <div className="max-w-6xl mx-auto">
 
         <motion.h1
-          initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease }}
-          className="font-display font-black text-[clamp(2.2rem,5vw,3.5rem)] text-[var(--text)] leading-[1.05] mb-2"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="font-display font-bold text-[clamp(2.4rem,5.5vw,3.8rem)] text-[var(--text)] leading-[1.02] tracking-tight mb-3"
         >
           Julián Fernández
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="font-mono text-[var(--text-2)] text-sm mb-4"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[var(--text-2)] text-sm mb-4"
         >
-          Full Stack Developer &middot; React &middot; TypeScript &middot; Angular &middot; Node.js &middot; 7+ yrs
+          Full Stack Developer — React · TypeScript · Angular · Node.js · 7+ yrs
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.15, ease }}
-          className="max-w-md text-[var(--text-2)] leading-relaxed mb-7"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.18 }}
+          className="max-w-md text-[var(--text-2)] leading-relaxed mb-8 text-[15px]"
         >
           Currently at Globant building enterprise apps for US clients.
           I lead on complex UI systems — state machines, real-time sync,
@@ -37,29 +35,29 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 0.35, delay: 0.25 }}
-          className="flex flex-wrap items-center gap-3"
+          transition={{ duration: 0.5, delay: 0.26 }}
+          className="flex flex-wrap items-center gap-5"
         >
           <a
             href="https://github.com/julian-fernandez"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-[var(--text-2)] text-sm font-medium hover:border-[var(--muted)] hover:text-[var(--text)] transition-colors"
+            className="flex items-center gap-2 text-sm text-[var(--text-2)] hover:text-[var(--text)] transition-colors"
           >
             <GithubIcon /> GitHub
           </a>
           <a
             href="mailto:julian.ferval@gmail.com"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)] text-white text-sm font-semibold hover:bg-[var(--accent-2)] transition-colors"
+            className="text-sm text-[var(--text)] underline underline-offset-4 decoration-[var(--accent)] hover:text-[var(--accent)] transition-colors"
           >
-            Contact me
+            julian.ferval@gmail.com
           </a>
           <a
             href="/julian-fernandez-cv.pdf"
             download
-            className="text-sm text-[var(--muted)] hover:text-[var(--text-2)] transition-colors underline underline-offset-4"
+            className="text-sm text-[var(--muted)] hover:text-[var(--text-2)] transition-colors"
           >
-            Download CV
+            CV ↓
           </a>
         </motion.div>
 

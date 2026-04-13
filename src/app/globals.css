@@ -3,26 +3,23 @@
 :root {
   color-scheme: dark;
 
-  --bg:       #09090F;
-  --surface:  #0F0F18;
-  --border:   rgba(255, 255, 255, 0.07);
-  --text:     #E8EAF2;
-  --text-2:   #8892A8;
-  --muted:    #4A5268;
+  --bg:       #0E0D0B;
+  --surface:  #141311;
+  --border:   rgba(255, 248, 230, 0.07);
+  --text:     #ECEAE4;
+  --text-2:   #7A736A;
+  --muted:    #4A4540;
 
-  --accent:   #818CF8;   /* indigo-400 */
-  --accent-2: #6366F1;   /* indigo-500 */
+  --accent:   #C8A96A;   /* warm gold — nothing like the indigo template */
+  --accent-2: #B8953A;
 
-  --nav-scrolled-bg: rgba(9, 9, 15, 0.92);
-
-  /* Darker surface for image cards and screenshots */
-  --surface-card: #0C0C14;
+  --nav-scrolled-bg: rgba(14, 13, 11, 0.95);
+  --surface-card:    #100F0D;
 }
 
 @theme inline {
-  --font-sans:    var(--font-geist-sans);
-  --font-mono:    var(--font-geist-mono);
-  --font-display: var(--font-playfair);
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-syne);
 }
 
 html {
